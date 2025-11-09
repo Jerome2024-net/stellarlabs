@@ -1864,6 +1864,21 @@ section {
     /* Portfolio adjustments */
     .portfolio-grid {
         gap: var(--space-md);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card,
+    .project-card.large {
+        grid-column: span 1;
+        display: block;
+    }
+
+    .project-image {
+        height: 250px;
+    }
+
+    .project-card.large .project-image {
+        height: 250px;
     }
 
     .about-features {
@@ -1911,6 +1926,34 @@ section {
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
+    }
+
+    /* Portfolio mobile */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .project-card,
+    .project-card.large {
+        grid-column: span 1;
+        display: block;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+
+    .project-card.large .project-image {
+        height: 220px;
+    }
+
+    .project-content {
+        padding: var(--space-lg);
+    }
+
+    .project-content h3 {
+        font-size: 1.125rem;
     }
 
     .tech-showcase {
@@ -2111,7 +2154,13 @@ section {
     }
 
     .portfolio-grid {
+        grid-template-columns: 1fr;
         gap: var(--space-md);
+    }
+
+    .project-card,
+    .project-card.large {
+        grid-column: span 1;
     }
 
     .about-features {
@@ -2407,12 +2456,51 @@ section {
     }
 
     /* Project cards */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .project-card,
+    .project-card.large {
+        grid-column: span 1;
+        display: block;
+    }
+
+    .project-content {
+        padding: var(--space-md);
+    }
+
     .project-content h3 {
-        font-size: 1.125rem;
+        font-size: 1rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .project-content p {
+        font-size: 0.875rem;
+        line-height: 1.5;
     }
 
     .project-image {
         height: 200px;
+    }
+
+    .project-card.large .project-image {
+        height: 200px;
+    }
+
+    .project-tags {
+        margin-bottom: var(--space-sm);
+        gap: 6px;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .project-link {
+        font-size: 0.875rem;
     }
 
     /* About section */
