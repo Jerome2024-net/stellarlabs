@@ -1,115 +1,175 @@
-# Creative Web Agency Website
+# Stellar Labs - Agence de Développement Web & Design
 
-A beautiful, modern, and fully responsive website for a web agency. Built with HTML5, CSS3, and vanilla JavaScript.
+Site web officiel de Stellar Labs, agence digitale basée à Cotonou, Bénin. Solutions web innovantes et sur mesure pour entreprises ambitieuses.
+
+🌐 **Site officiel:** [stellar-labs.fr](https://stellar-labs.fr)
 
 ## Features
 
-### 🎨 Design
-- Modern gradient color scheme with purple, pink, and teal accents
-- Smooth animations and transitions throughout
-- Fully responsive design (mobile, tablet, desktop)
-- Beautiful hover effects and interactive elements
-- Clean and professional layout
+### 🎨 Design Premium
+- Design moderne avec gradients et glassmorphism
+- Animations fluides et transitions sophistiquées
+- 100% responsive (mobile, tablette, desktop)
+- Effets hover interactifs
+- Interface professionnelle et épurée
 
 ### 📱 Sections
-1. **Hero Section** - Eye-catching landing with animated background
-2. **Services** - Showcase of 6 key services with icon cards
-3. **Portfolio** - Grid of projects with overlay effects
-4. **About** - Company info with animated statistics counter
-5. **Contact** - Contact form and company information
-6. **Footer** - Newsletter signup and quick links
+1. **Hero Section** - Présentation impactante avec CTA et trust indicators
+2. **Services** - 4 services clés avec icônes et descriptions
+3. **Tech Stack** - Technologies utilisées avec badges premium et featured AI
+4. **Portfolio** - Grille responsive de 5 projets en vedette
+5. **About** - Présentation de l'agence et valeurs
+6. **Contact** - Formulaire d'onboarding qualifié avec validation temps réel
+7. **Footer** - Liens rapides et informations contact
 
-### ⚡ Interactive Features
-- Smooth scrolling navigation
-- Mobile hamburger menu
-- Animated statistics counter
-- Parallax scroll effects
-- 3D tilt effect on service cards
-- Form validation and submission
-- Custom cursor animation
-- Scroll-based animations
-- Portfolio hover overlays
+### ⚡ Fonctionnalités
+- Navigation smooth scroll avec offset
+- Menu hamburger mobile responsive
+- Formulaire onboarding avec validation en temps réel
+- Intégration Formspree pour réception emails
+- Messages d'erreur personnalisés
+- Compteur de caractères dynamique
+- Custom radio buttons et checkboxes
+- Animations d'apparition au scroll (Intersection Observer)
+- États de validation visuels (success/error)
 
-## File Structure
+## Structure des Fichiers
 
 ```
-├── index.html          # Main HTML file
+├── index.html          # Page principale
 ├── css/
-│   └── style.css      # All styling and animations
+│   └── style.css      # Styles complets avec breakpoints responsive
 ├── js/
-│   └── script.js      # JavaScript functionality
-└── README.md          # This file
+│   └── script.js      # Validation formulaire et interactivité
+├── CNAME              # Configuration domaine personnalisé
+├── .gitignore         # Fichiers exclus de Git
+└── README.md          # Documentation
 ```
 
-## Technologies Used
+## Technologies Utilisées
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with Grid, Flexbox, animations
-- **JavaScript** - Interactive features and DOM manipulation
-- **Font Awesome 6.4.0** - Icons
-- **Unsplash API** - Portfolio images
+- **HTML5** - Structure sémantique
+- **CSS3** - Grid, Flexbox, animations, glassmorphism
+- **JavaScript (Vanilla)** - Validation, animations, UX
+- **Font Awesome 6.4.0** - Bibliothèque d'icônes
+- **Google Fonts Inter** - Typographie moderne
+- **Formspree** - Gestion des soumissions de formulaire
+- **GitHub Pages** - Hébergement et déploiement
 
-## How to Use
+## Domaine & Hébergement
 
-1. Open `index.html` in your web browser
-2. Or use a local server for best experience:
+- **Domaine:** stellar-labs.fr (acheté sur Hostinger)
+- **Hébergement:** GitHub Pages
+- **Repository:** [github.com/Jerome2024-net/stellarlabs](https://github.com/Jerome2024-net/stellarlabs)
+
+### Configuration DNS (Hostinger)
+Pour pointer stellar-labs.fr vers GitHub Pages, configurez les enregistrements DNS :
+
+```
+Type: A
+Host: @
+Value: 185.199.108.153
+
+Type: A
+Host: @
+Value: 185.199.109.153
+
+Type: A  
+Host: @
+Value: 185.199.110.153
+
+Type: A
+Host: @
+Value: 185.199.111.153
+
+Type: CNAME
+Host: www
+Value: jerome2024-net.github.io
+```
+
+## Installation Locale
+
+1. Cloner le repository :
+   ```bash
+   git clone https://github.com/Jerome2024-net/stellarlabs.git
+   cd stellarlabs
    ```
-   # Using Python
+
+2. Lancer un serveur local :
+   ```bash
+   # Avec Python
    python -m http.server 8000
    
-   # Using Node.js
+   # Avec Node.js
    npx serve
    ```
-3. Navigate to `http://localhost:8000`
 
-## Customization
+3. Ouvrir dans le navigateur : `http://localhost:8000`
 
-### Colors
-Edit the CSS variables in `style.css`:
+## Déploiement
+
+Push vers la branche main pour déployer automatiquement :
+```bash
+git add .
+git commit -m "Update: description"
+git push origin main
+```
+
+Le site sera disponible sur stellar-labs.fr après quelques minutes.
+
+## Formulaire de Contact
+
+Le formulaire d'onboarding collecte :
+- Nom complet & entreprise
+- Email professionnel & téléphone
+- Type de projet (8 options)
+- Description du projet (min 20 caractères)
+- Budget estimé (4 tranches)
+- Délai souhaité (5 options)
+- Services additionnels (4 checkboxes optionnels)
+- Consentement RGPD
+
+**Endpoint Formspree:** https://formspree.io/f/mnnlaggd
+
+## Personnalisation
+
+### Couleurs
+Variables CSS dans `style.css` :
 ```css
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #ec4899;
-    --accent-color: #14b8a6;
+    --color-primary: #3B82F6;
+    --color-dark: #0F172A;
+    --color-gray-light: #94A3B8;
     /* ... */
 }
 ```
 
-### Content
-- Edit text directly in `index.html`
-- Replace portfolio images by changing the Unsplash URLs
-- Update company information in the contact and footer sections
+### Contenu
+- Modifier le texte dans `index.html`
+- Remplacer les images Unsplash par vos propres visuels
+- Mettre à jour les informations de contact
 
-### Features
-- Modify animations in `style.css` keyframes section
-- Adjust JavaScript functionality in `script.js`
-- Add or remove sections as needed
+## Compatibilité Navigateurs
 
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+- Chrome (dernière version)
+- Firefox (dernière version)
+- Safari (dernière version)
+- Edge (dernière version)
+- Navigateurs mobiles iOS/Android
 
 ## Performance
 
-- Optimized CSS with minimal redundancy
-- Efficient JavaScript with event delegation
-- Lazy loading ready for images
-- Smooth 60fps animations
+- CSS optimisé avec animations 60fps
+- JavaScript vanilla sans dépendances lourdes
+- Images optimisées via Unsplash CDN
+- Chargement rapide < 2s
 
-## Credits
+## Contact
 
-- Icons: Font Awesome
-- Images: Unsplash
-- Fonts: System fonts (Segoe UI, etc.)
-
-## License
-
-Free to use for personal and commercial projects.
+- **Email:** contact@stellar-labs.fr
+- **Téléphone:** +229 59 97 20 79
+- **Adresse:** Cotonou, Bénin - Afrique de l'Ouest
 
 ---
 
-**Built with ❤️ by Creative Web Agency**
+**© 2025 Stellar Labs - Agence de Développement Web & Design**
