@@ -531,28 +531,170 @@
                 </div>
 
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/mnnlaggd" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" id="name" name="name" required>
+                    <!-- Informations de Contact -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user"></i>
+                            Vos Informations
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Entreprise *</label>
+                                <input type="text" id="company" name="company" placeholder="Votre entreprise" required>
+                                <span class="form-error"></span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email professionnel *</label>
+                                <input type="email" id="email" name="email" placeholder="vous@entreprise.com" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+229 XX XX XX XX" required>
+                                <span class="form-error"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" required>
+
+                    <!-- Détails du Projet -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-briefcase"></i>
+                            Votre Projet
+                        </h3>
+                        <div class="form-group">
+                            <label for="projectType">Type de projet *</label>
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Sélectionnez un type de projet</option>
+                                <option value="site-vitrine">Site Vitrine</option>
+                                <option value="ecommerce">E-Commerce</option>
+                                <option value="application-web">Application Web</option>
+                                <option value="application-mobile">Application Mobile</option>
+                                <option value="refonte">Refonte de Site</option>
+                                <option value="maintenance">Maintenance & Support</option>
+                                <option value="ia-integration">Intégration IA</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                            <span class="form-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Décrivez votre projet *</label>
+                            <textarea id="description" name="description" rows="5" placeholder="Décrivez-nous votre projet, vos objectifs et vos besoins..." required></textarea>
+                            <span class="form-hint">Minimum 20 caractères</span>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Budget estimé *</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="budget" value="moins-5k" required>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">Moins de 5 000 €</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="budget" value="5k-15k">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">5 000 € - 15 000 €</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="budget" value="15k-30k">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">15 000 € - 30 000 €</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="budget" value="plus-30k">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">Plus de 30 000 €</span>
+                                </label>
+                            </div>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline">Délai souhaité *</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Sélectionnez un délai</option>
+                                <option value="urgent">Urgent (moins d'1 mois)</option>
+                                <option value="1-3-mois">1 à 3 mois</option>
+                                <option value="3-6-mois">3 à 6 mois</option>
+                                <option value="6-mois-plus">Plus de 6 mois</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                            <span class="form-error"></span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <!-- Services Additionnels -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-star"></i>
+                            Services Souhaités (optionnel)
+                        </h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="services" value="design-ui-ux">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <strong>Design UI/UX</strong>
+                                    <small>Interface utilisateur moderne</small>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="services" value="seo">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <strong>SEO & Marketing Digital</strong>
+                                    <small>Optimisation référencement</small>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="services" value="hebergement">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <strong>Hébergement & Maintenance</strong>
+                                    <small>Gestion technique complète</small>
+                                </span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="services" value="formation">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">
+                                    <strong>Formation & Support</strong>
+                                    <small>Accompagnement utilisateur</small>
+                                </span>
+                            </label>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">
-                        <span>Envoyer le message</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+
+                    <!-- RGPD & Submit -->
+                    <div class="form-footer">
+                        <label class="checkbox-option consent-checkbox">
+                            <input type="checkbox" name="consent" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">
+                                J'accepte que mes données soient utilisées pour me recontacter concernant ma demande *
+                            </span>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Obtenir mon devis gratuit</span>
+                            <i class="fas fa-rocket"></i>
+                        </button>
+                        
+                        <p class="form-notice">
+                            <i class="fas fa-shield-check"></i>
+                            Vos données sont sécurisées et ne seront jamais partagées avec des tiers
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>

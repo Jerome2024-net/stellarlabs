@@ -115,25 +115,203 @@ document.querySelectorAll('.service-card, .project-card, .about-content, .about-
 });
 
 // ========================================
-// Gestion du Formulaire de Contact
+// Gestion du Formulaire de Contact avec Validation
 // ========================================
 
 const contactForm = document.getElementById('contactForm');
 
+// Patterns de validation
+const patterns = {
+    name: /^[a-zA-ZÀ-ÿ\s]{2,50}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    phone: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+    company: /^.{2,100}$/,
+    description: /^.{20,1000}$/
+};
+
+// Messages d'erreur
+const errorMessages = {
+    name: 'Veuillez entrer un nom valide (2-50 caractères)',
+    email: 'Veuillez entrer une adresse email valide',
+    phone: 'Veuillez entrer un numéro de téléphone valide',
+    company: 'Veuillez entrer le nom de votre entreprise',
+    projectType: 'Veuillez sélectionner un type de projet',
+    description: 'Veuillez décrire votre projet (minimum 20 caractères)',
+    budget: 'Veuillez sélectionner un budget',
+    timeline: 'Veuillez sélectionner un délai',
+    consent: 'Vous devez accepter la politique de confidentialité'
+};
+
+// Validation en temps réel
+function validateField(field) {
+    const formGroup = field.closest('.form-group');
+    const errorElement = formGroup?.querySelector('.form-error');
+    const fieldName = field.name;
+    let isValid = true;
+    let errorMessage = '';
+
+    // Supprimer les classes précédentes
+    formGroup?.classList.remove('error', 'success');
+
+    // Validation selon le type de champ
+    if (field.type === 'text' || field.type === 'email' || field.type === 'tel') {
+        if (field.value.trim() === '') {
+            isValid = false;
+            errorMessage = errorMessages[fieldName] || 'Ce champ est requis';
+        } else if (patterns[fieldName] && !patterns[fieldName].test(field.value)) {
+            isValid = false;
+            errorMessage = errorMessages[fieldName];
+        }
+    } else if (field.tagName === 'SELECT') {
+        if (field.value === '') {
+            isValid = false;
+            errorMessage = errorMessages[fieldName];
+        }
+    } else if (field.tagName === 'TEXTAREA') {
+        if (field.value.trim().length < 20) {
+            isValid = false;
+            errorMessage = errorMessages[fieldName];
+        }
+    } else if (field.type === 'radio') {
+        const radioGroup = document.getElementsByName(fieldName);
+        isValid = Array.from(radioGroup).some(radio => radio.checked);
+        if (!isValid) {
+            errorMessage = errorMessages[fieldName];
+        }
+    } else if (field.type === 'checkbox' && field.name === 'consent') {
+        if (!field.checked) {
+            isValid = false;
+            errorMessage = errorMessages[fieldName];
+        }
+    }
+
+    // Afficher le résultat
+    if (formGroup) {
+        if (isValid && field.value.trim() !== '') {
+            formGroup.classList.add('success');
+            if (errorElement) errorElement.textContent = '';
+        } else if (!isValid) {
+            formGroup.classList.add('error');
+            if (errorElement) errorElement.textContent = errorMessage;
+        }
+    }
+
+    return isValid;
+}
+
+// Ajouter les écouteurs de validation en temps réel
 if (contactForm) {
+    // Validation pour les champs texte
+    const textInputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select');
+    textInputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => {
+            if (input.closest('.form-group')?.classList.contains('error')) {
+                validateField(input);
+            }
+        });
+    });
+
+    // Validation pour les radio buttons
+    const radioGroups = {};
+    contactForm.querySelectorAll('input[type="radio"]').forEach(radio => {
+        const name = radio.name;
+        if (!radioGroups[name]) {
+            radioGroups[name] = [];
+        }
+        radioGroups[name].push(radio);
+
+        radio.addEventListener('change', () => {
+            validateField(radio);
+        });
+    });
+
+    // Validation pour le checkbox de consentement
+    const consentCheckbox = contactForm.querySelector('input[name="consent"]');
+    if (consentCheckbox) {
+        consentCheckbox.addEventListener('change', () => validateField(consentCheckbox));
+    }
+
+    // Soumission du formulaire
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        // Valider tous les champs
+        let isFormValid = true;
+        const requiredFields = contactForm.querySelectorAll('[required]');
         
-        // Afficher la notification de succès
-        showNotification('Message envoyé avec succès ! Nous vous répondrons bientôt.', 'success');
-        
-        // Réinitialiser le formulaire
-        contactForm.reset();
+        requiredFields.forEach(field => {
+            if (!validateField(field)) {
+                isFormValid = false;
+            }
+        });
+
+        // Valider les groupes radio
+        const budgetRadios = contactForm.querySelectorAll('input[name="budget"]');
+        if (!Array.from(budgetRadios).some(radio => radio.checked)) {
+            isFormValid = false;
+            const budgetGroup = budgetRadios[0].closest('.form-group');
+            if (budgetGroup) {
+                budgetGroup.classList.add('error');
+                const errorElement = budgetGroup.querySelector('.form-error');
+                if (errorElement) errorElement.textContent = errorMessages.budget;
+            }
+        }
+
+        if (isFormValid) {
+            // Désactiver le bouton pendant l'envoi
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.querySelector('span').textContent;
+            submitButton.disabled = true;
+            submitButton.querySelector('span').textContent = 'Envoi en cours...';
+            submitButton.style.opacity = '0.7';
+
+            // Le formulaire sera soumis à Formspree
+            // Simulation de succès après envoi
+            setTimeout(() => {
+                showNotification('🎉 Merci ! Votre demande a été envoyée. Nous vous contacterons sous 24h.', 'success');
+                contactForm.reset();
+                
+                // Réinitialiser les états de validation
+                contactForm.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error', 'success');
+                });
+
+                // Réactiver le bouton
+                submitButton.disabled = false;
+                submitButton.querySelector('span').textContent = originalButtonText;
+                submitButton.style.opacity = '1';
+            }, 1000);
+
+            // Permettre la soumission réelle à Formspree
+            contactForm.submit();
+        } else {
+            showNotification('❌ Veuillez corriger les erreurs dans le formulaire', 'error');
+            
+            // Scroll vers la première erreur
+            const firstError = contactForm.querySelector('.form-group.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+}
+
+// Compteur de caractères pour la description
+const descriptionField = document.getElementById('description');
+if (descriptionField) {
+    descriptionField.addEventListener('input', function() {
+        const hint = this.parentElement.querySelector('.form-hint');
+        const length = this.value.length;
+        if (hint) {
+            if (length < 20) {
+                hint.textContent = `${20 - length} caractères restants`;
+                hint.style.color = '#ef4444';
+            } else {
+                hint.textContent = `${length} caractères`;
+                hint.style.color = 'rgba(255, 255, 255, 0.5)';
+            }
+        }
     });
 }
 
