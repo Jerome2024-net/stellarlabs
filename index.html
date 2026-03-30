@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stellar Labs - Web development and design agency in Cotonou, Benin. Tailor-made digital solutions, web applications, e-commerce, AI integration.">
-    <meta name="keywords" content="web agency Benin, web development Cotonou, UI/UX design, web application, e-commerce, artificial intelligence">
-    <meta property="og:title" content="Stellar Labs - Web Development & Design Agency">
-    <meta property="og:description" content="Innovative tailor-made digital solutions for your business">
+    <meta name="description" content="Stellar Labs - Premium web development & custom AI solutions agency. We build intelligent digital products powered by cutting-edge AI for forward-thinking businesses.">
+    <meta name="keywords" content="custom AI solutions, AI integration, web development, AI-powered apps, machine learning, GPT integration, intelligent automation">
+    <meta property="og:title" content="Stellar Labs - Custom AI Solutions & Premium Web Development">
+    <meta property="og:description" content="We build intelligent digital products powered by cutting-edge AI for forward-thinking businesses">
     <meta property="og:url" content="https://stellar-labs.fr">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
     <link rel="alternate icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     
-    <title>Stellar Labs - Web Development & Design Agency | Cotonou, Benin</title>
+    <title>Stellar Labs - Custom AI Solutions & Premium Web Development | Cotonou, Benin</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,29 +54,33 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <canvas id="heroParticles" class="hero-particles"></canvas>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="badge-dot"></span>
-                    Available for new projects
+                    <span class="badge-ai-icon"><i class="fas fa-brain"></i></span>
+                    AI-Powered Solutions — Now Available
                 </div>
                 <h1 class="hero-title">
-                    Web Development &<br/>
-                    Exceptional Design
+                    We Build <span class="gradient-text">AI-Powered</span><br/>
+                    Digital Experiences
                 </h1>
                 <p class="hero-description">
-                    Turn your digital presence into a client-generating machine.
-                    We build high-performance websites that convert visitors into loyal customers.
+                    Custom AI solutions that transform your business. From intelligent automation
+                    to predictive analytics — we craft tailor-made AI products that drive real results.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>Get a free website audit</span>
+                    <a href="#contact" class="btn btn-primary btn-glow">
+                        <span><i class="fas fa-robot"></i> Get Your Free AI Consultation</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#work" class="btn btn-outline">Our work</a>
+                    <a href="#ai-solutions" class="btn btn-outline-light">Explore AI Solutions</a>
                 </div>
                 <div class="hero-trust">
-                    <p class="trust-text">✓ Response within 24h • ✓ Free quote • ✓ Satisfaction guaranteed</p>
+                    <p class="trust-text">✓ Response within 24h • ✓ Free consultation • ✓ Satisfaction guaranteed</p>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -90,6 +94,70 @@
                     <div class="stat">
                         <div class="stat-number">+150%</div>
                         <div class="stat-label">Average ROI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Solutions Spotlight -->
+    <section id="ai-solutions" class="ai-spotlight">
+        <div class="container">
+            <div class="ai-spotlight-grid">
+                <div class="ai-spotlight-content">
+                    <span class="section-label ai-label"><i class="fas fa-sparkles"></i> Custom AI Solutions</span>
+                    <h2 class="section-title">Tailor-Made AI That Transforms Your Business</h2>
+                    <p class="ai-spotlight-desc">We don't just integrate AI — we build bespoke intelligent systems designed around your unique business challenges. Our AI engineers craft solutions that learn, adapt, and deliver measurable impact.</p>
+                    <div class="ai-features">
+                        <div class="ai-feature">
+                            <div class="ai-feature-icon"><i class="fas fa-comments"></i></div>
+                            <div>
+                                <strong>Intelligent Chatbots & Assistants</strong>
+                                <p>Custom GPT-powered conversational AI trained on your data</p>
+                            </div>
+                        </div>
+                        <div class="ai-feature">
+                            <div class="ai-feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <strong>Predictive Analytics</strong>
+                                <p>ML models that forecast trends and automate decisions</p>
+                            </div>
+                        </div>
+                        <div class="ai-feature">
+                            <div class="ai-feature-icon"><i class="fas fa-cogs"></i></div>
+                            <div>
+                                <strong>Process Automation</strong>
+                                <p>AI workflows that eliminate repetitive tasks and boost efficiency</p>
+                            </div>
+                        </div>
+                        <div class="ai-feature">
+                            <div class="ai-feature-icon"><i class="fas fa-eye"></i></div>
+                            <div>
+                                <strong>Computer Vision & NLP</strong>
+                                <p>Image recognition, document analysis, and language understanding</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-glow">
+                        <span>Discuss Your AI Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="ai-spotlight-visual">
+                    <div class="ai-orbit">
+                        <div class="ai-orbit-center">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="ai-orbit-ring ring-1">
+                            <div class="orbit-dot" style="--delay: 0s;"><i class="fas fa-robot"></i></div>
+                            <div class="orbit-dot" style="--delay: 1.5s;"><i class="fas fa-microchip"></i></div>
+                            <div class="orbit-dot" style="--delay: 3s;"><i class="fas fa-network-wired"></i></div>
+                        </div>
+                        <div class="ai-orbit-ring ring-2">
+                            <div class="orbit-dot" style="--delay: 0.5s;"><i class="fas fa-database"></i></div>
+                            <div class="orbit-dot" style="--delay: 2s;"><i class="fas fa-chart-bar"></i></div>
+                            <div class="orbit-dot" style="--delay: 3.5s;"><i class="fas fa-shield-alt"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -322,13 +390,13 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to Boost Your Business?</h2>
-                <p class="cta-description">Get a free audit of your digital presence and discover how to increase your conversions by 150%</p>
+                <h2 class="cta-title">Ready to Integrate AI Into Your Business?</h2>
+                <p class="cta-description">Get a free AI readiness assessment and discover how custom AI solutions can increase your efficiency by 300%</p>
                 <a href="#contact" class="btn btn-primary btn-large">
-                    <span>Request a free audit</span>
+                    <span><i class="fas fa-robot"></i> Book Your Free AI Consultation</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <p class="cta-guarantee">🔒 No commitment • Response within 24h</p>
+                <p class="cta-guarantee">🔒 No commitment • Response within 24h • Custom solutions only</p>
             </div>
         </div>
     </section>
@@ -765,7 +833,7 @@
                         </svg>
                         <span>Stellar Labs</span>
                     </div>
-                    <p>Creating digital products and brands that make a difference.</p>
+                    <p>AI-powered digital products and brands that make a difference.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -785,9 +853,9 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
+                        <li><a href="#ai-solutions">Custom AI Solutions</a></li>
                         <li><a href="#services">Web Development</a></li>
                         <li><a href="#services">Design UI/UX</a></li>
-                        <li><a href="#services">Branding</a></li>
                         <li><a href="#services">Strategy</a></li>
                     </ul>
                 </div>
@@ -811,5 +879,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 </html>
