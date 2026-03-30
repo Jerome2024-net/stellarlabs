@@ -131,15 +131,15 @@ const patterns = {
 
 // Messages d'erreur
 const errorMessages = {
-    name: 'Veuillez entrer un nom valide (2-50 caractères)',
-    email: 'Veuillez entrer une adresse email valide',
-    phone: 'Veuillez entrer un numéro de téléphone valide',
-    company: 'Veuillez entrer le nom de votre entreprise',
-    projectType: 'Veuillez sélectionner un type de projet',
-    description: 'Veuillez décrire votre projet (minimum 20 caractères)',
-    budget: 'Veuillez sélectionner un budget',
-    timeline: 'Veuillez sélectionner un délai',
-    consent: 'Vous devez accepter la politique de confidentialité'
+    name: 'Please enter a valid name (2-50 characters)',
+    email: 'Please enter a valid email address',
+    phone: 'Please enter a valid phone number',
+    company: 'Please enter your company name',
+    projectType: 'Please select a project type',
+    description: 'Please describe your project (minimum 20 characters)',
+    budget: 'Please select a budget',
+    timeline: 'Please select a timeline',
+    consent: 'You must accept the privacy policy'
 };
 
 // Validation en temps réel
@@ -157,7 +157,7 @@ function validateField(field) {
     if (field.type === 'text' || field.type === 'email' || field.type === 'tel') {
         if (field.value.trim() === '') {
             isValid = false;
-            errorMessage = errorMessages[fieldName] || 'Ce champ est requis';
+            errorMessage = errorMessages[fieldName] || 'This field is required';
         } else if (patterns[fieldName] && !patterns[fieldName].test(field.value)) {
             isValid = false;
             errorMessage = errorMessages[fieldName];
@@ -263,13 +263,13 @@ if (contactForm) {
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.querySelector('span').textContent;
             submitButton.disabled = true;
-            submitButton.querySelector('span').textContent = 'Envoi en cours...';
+            submitButton.querySelector('span').textContent = 'Sending...';
             submitButton.style.opacity = '0.7';
 
             // Le formulaire sera soumis à Formspree
             // Simulation de succès après envoi
             setTimeout(() => {
-                showNotification('🎉 Merci ! Votre demande a été envoyée. Nous vous contacterons sous 24h.', 'success');
+                showNotification('🎉 Thank you! Your request has been sent. We will contact you within 24h.', 'success');
                 contactForm.reset();
                 
                 // Réinitialiser les états de validation
@@ -286,7 +286,7 @@ if (contactForm) {
             // Permettre la soumission réelle à Formspree
             contactForm.submit();
         } else {
-            showNotification('❌ Veuillez corriger les erreurs dans le formulaire', 'error');
+            showNotification('❌ Please fix the errors in the form', 'error');
             
             // Scroll vers la première erreur
             const firstError = contactForm.querySelector('.form-group.error');
@@ -305,10 +305,10 @@ if (descriptionField) {
         const length = this.value.length;
         if (hint) {
             if (length < 20) {
-                hint.textContent = `${20 - length} caractères restants`;
+                hint.textContent = `${20 - length} characters remaining`;
                 hint.style.color = '#ef4444';
             } else {
-                hint.textContent = `${length} caractères`;
+                hint.textContent = `${length} characters`;
                 hint.style.color = 'rgba(255, 255, 255, 0.5)';
             }
         }
@@ -387,4 +387,4 @@ window.addEventListener('load', () => {
 });
 
 console.log('%c✨ Stellar Labs', 'color: #3B82F6; font-size: 20px; font-weight: bold;');
-console.log('%cSite web chargé avec succès', 'color: #64748B; font-size: 14px;');
+console.log('%cWebsite loaded successfully', 'color: #64748B; font-size: 14px;');
